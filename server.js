@@ -1,15 +1,13 @@
-// server.js
-import { createServer } from 'node:http';
-// const { createServer } = require('http');
+// import http module
+const http = require('http');
 
-const server = createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World!\n');
+// create a http server
+const server = http.createServer((request, response) => {
+  response.write('hello nodejs!');
+  response.end();
 });
 
-// starts a simple http server locally on port 3000
-server.listen(3000, '0.0.0.0', () => {
-  console.log('Listening on 127.0.0.1:3000');
+// run the http server
+server.listen(3001, 'localhost', () => {
+  console.log('server is running @ http://localhost:3001');
 });
-
-// run with `node server.js`
