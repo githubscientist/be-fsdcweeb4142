@@ -17,3 +17,35 @@ Version numbers in npm follow the Semantic Versioning (SemVer) format: `MAJOR.MI
 - **MAJOR** version is incremented when there are major changes that break backward compatibility.
 - **MINOR** version is incremented when new features are added in a backward-compatible manner
 - **PATCH** version is incremented when backward-compatible bug fixes are made.
+
+## Using NPM and Managing Packages
+
+- npm: The Node Package Manager (npm) is a tool that allows you to manage and install packages (libraries) for your JavaScript projects. 
+
+- To install a package, you can use the command `npm install <package-name>`. This will add the package to your `node_modules` directory and update your `package.json` file with the dependency.
+
+- To uninstall a package, you can use the command `npm uninstall <package-name>`. This will remove the package from your `node_modules` directory and update your `package.json` file accordingly.
+
+- To update a package, you can use the command `npm update <package-name>`. This will update the package to the latest version that satisfies the version range specified in your `package.json` file.
+
+## Depenencies
+
+- There are two types of dependencies in npm: regular dependencies and devDependencies.
+- Regular dependencies are packages that your application needs to run. They are listed under the `dependencies` field in your `package.json` file.
+- DevDependencies are packages that are only needed during development, such as testing frameworks or build tools
+
+## Third Party Modules
+
+- There are many third-party modules available on npm that can be used to add functionality to your JavaScript projects. Some popular modules include:
+  - `express`: A web application framework for Node.js.
+  - `axios`: A promise-based HTTP client for making requests to APIs.
+  - `mongoose`: An Object Data Modeling (ODM) library for MongoDB and Node.js.
+  - `jsonwebtoken`: A library for creating and verifying JSON Web Tokens (JWTs) for authentication and authorization.
+  - `bcrypt`: A library for hashing passwords and comparing hashed passwords for authentication purposes.
+  - `morgan`: A HTTP request logger middleware for Node.js.
+  - `cors`: A middleware for enabling Cross-Origin Resource Sharing (CORS) in your Node.js applications.
+  - `dotenv`: A module that loads environment variables from a `.env` file into `process.env` for use in your application.
+  - `body-parser`: A middleware for parsing incoming request bodies in a middleware before your handlers, available under the `req.body` property.
+  - `nodemon`: A utility that automatically restarts your Node.js application when file changes in the directory are detected, making development easier.
+  - `nodemailer`: A module for sending emails from Node.js applications.
+  - `cookie-parser`: A middleware for parsing cookies in incoming requests and making them available under the `req.cookies` property.
