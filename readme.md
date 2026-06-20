@@ -77,3 +77,52 @@ Some Commonly Used Status Codes:
 - Node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides a set of built-in modules and APIs for building server-side applications, such as handling HTTP requests, working with the file system, and managing processes. It is a low-level framework that requires you to write more code to handle routing, middleware, and other common web application tasks.
 
 - Express.js, on the other hand, is a web application framework built on top of Node.js. It provides a higher-level abstraction for building web applications, with features such as routing, middleware, and templating. Express.js simplifies the process of building web applications by providing a set of conventions and best practices for structuring your code and handling common tasks.
+
+## Backend Application Setup using Express.js
+
+1. Install Node.js and npm (Node Package Manager) if you haven't already. You can download them from the official Node.js website: https://nodejs.org/
+2. Check if Node.js and npm are installed correctly by running the following commands in your terminal:
+   ```
+   node -v
+   npm -v
+   ```
+3. Create a new folder for your backend application and open it in VS Code.
+4. Initialize a new Node.js project by running the following command in your terminal:
+   ```
+   npm init -y
+   ```
+
+or 
+
+    ```
+    npm init
+    ```
+    This will create a `package.json` file in your project folder.
+
+
+    note: you use `npm init -y` to automatically generate a `package.json` file with default settings, while `npm init` allows you to customize the settings interactively.
+5. Install Express.js by running the following command in your terminal:
+   ```
+   npm install express
+   ```
+6. Create a new file named `server.js` in your project folder. This file will be the entry point of your backend application.
+7. Open `server.js` and add the following code to set up a basic Express server:
+
+    ```javascript
+    const express = require('express');
+    const app = express();
+
+    app.get('/', (req, res) => {
+        res.send('Hello, World!');
+    });
+
+    app.listen(3000, () => {
+        console.log('Server is running on http://localhost:3000');
+    });
+    ```
+8. Save the `server.js` file.
+9. Start the server by running the following command in your terminal:
+    ```
+    node server.js
+    ```
+10. Open your web browser and navigate to `http://localhost:3000`. You should see the message "Hello, World!" displayed in your browser.

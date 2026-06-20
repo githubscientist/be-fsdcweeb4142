@@ -1,23 +1,32 @@
-// import express
+// import express into the app
 const express = require('express');
 
-// create a server application using express() function
+// create an express application
 const app = express();
 
+// configure the routes
 app.get('/', (request, response) => {
-  response.json({ message: 'hello nodejs!' });
+    response.json({ message: 'hello get' });
 });
 
 app.post('/', (request, response) => {
-  response.json({ message: 'hello post!' });
+    response.json({ message: 'hello post!' });
 });
 
-// to handle the error routes -- globally
-app.use((request, response, next) => {
-  response.json({ message: 'Route not found' });
+app.put('/', (request, response) => {
+    response.json({ message: 'hello put!' });
+});
+
+app.delete('/', (request, response) => {
+    response.json({ message: 'hello delete!' });
 });
 
 // start the server to listen for http requests
-app.listen(3001, 'localhost', () => {
-  console.log('Server is running at http://localhost:3001');
+app.listen(3001, 'localhost', (error) => {
+    if (error) {
+        console.log('Error starting the server:', error.message);
+        return; // exits the function immediately if there is an error
+    }
+
+    console.log('Server is running at http://localhost:3001')
 });
