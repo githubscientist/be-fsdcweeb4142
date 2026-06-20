@@ -126,3 +126,7 @@ or
     node server.js
     ```
 10. Open your web browser and navigate to `http://localhost:3000`. You should see the message "Hello, World!" displayed in your browser.
+
+## Middleware
+
+- Middleware are functions that exists in the middle of the request-response cycle. They have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle. Middleware functions can perform tasks such as executing code, modifying the request and response objects, ending the request-response cycle, or calling the next middleware function.
