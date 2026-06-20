@@ -1,17 +1,16 @@
 // import express into the app
 const express = require('express');
-
-// create an express application
-const app = express();
-
 const logger = require('./middlewares/logger');
 const errorRoute = require('./middlewares/errorRoute');
 const notesRouter = require('./routes/notesRouter');
 
+// create an express application
+const app = express();
+
 // use the middleware
 app.use(logger);
 
-// configure the routes for root endpoint '/'
+// configure the routes for root endpoint '/notes'
 app.use('/notes', notesRouter);
 
 app.use(errorRoute);
