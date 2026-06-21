@@ -1,21 +1,21 @@
 const app = require("./app");
 const mongoose = require('mongoose');
-require('dotenv').config();
+const { MONGODB_URI, PORT, HOST } = require("./utils/config");
 
 mongoose
-    .connect(process.env.MONGODB_URI)
+    .connect(MONGODB_URI)
     .then(() => {
         console.log('Connected to the MongoDB Database');
 
         // start the server to listen for http requests
         app
-        .listen(3001, 'localhost', (error) => {
+        .listen(PORT, HOST, (error) => {
             if (error) {
                 console.log('Error starting the server:', error.message);
                 return; // exits the function immediately if there is an error
             }
 
-            console.log('Server is running at http://localhost:3001')
+            console.log(`Server is running at http://${HOST}:${PORT}`);
         });
     })
     .catch((error) => {
