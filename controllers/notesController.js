@@ -1,9 +1,35 @@
+const Note = require('../models/note');
+
 const notesController = {
-    getAllNotes: (request, response) => {
-        response.json(notes);
+    getAllNotes: async (request, response) => {
+        try {
+            // get all the notes from the database
+            const notes = await Note.find({}, { __v: 0 });
+
+            response.json(notes);
+        } catch (e) {
+            return response.status(500).json({ message: 'Error creating a new note. Try again later!', error: e.data.message });
+        }
     },
-    createNote: (request, response) => {
-        response.json({ message: 'post notes' });
+    createNote: async (request, response) => {
+        try {
+            // get the data from the request body
+            const { title, description, tag } = request.body;
+
+            // create a new object from the model Note
+            const newNote = new Note({
+                title,
+                description,
+                tag
+            });
+
+            // save the newNote in the database
+            const savedNote = await newNote.save();
+
+            response.json({ message: 'Note created successfully!', data: savedNote });
+        } catch (e) {
+            return response.status(500).json({ message: 'Error creating a new note. Try again later!', error: e.data.message });
+        }
     },
     updateNote: (request, response) => {
         response.json({ message: 'put notes' });
