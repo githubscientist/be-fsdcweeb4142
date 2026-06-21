@@ -1,6 +1,6 @@
 const notesController = {
     getAllNotes: (request, response) => {
-        response.json({ message: 'get notes' });
+        response.json(notes);
     },
     createNote: (request, response) => {
         response.json({ message: 'post notes' });
