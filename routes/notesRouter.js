@@ -1,12 +1,13 @@
 // import express
 const express = require('express');
-const { getAllNotes, createNote, updateNote, deleteNote } = require('../controllers/notesController');
+const { getAllNotes, createNote, updateNote, deleteNote, getNoteByID } = require('../controllers/notesController');
 
 // create a router
 const notesRouter = express.Router();
 
 // configure the routes
 notesRouter.get('/', getAllNotes);
+notesRouter.get('/:id', getNoteByID);
 notesRouter.post('/', createNote);
 notesRouter.put('/:id', updateNote);
 notesRouter.delete('/:id', deleteNote);

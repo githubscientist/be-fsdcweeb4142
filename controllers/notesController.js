@@ -66,6 +66,20 @@ const notesController = {
         } catch (e) {
             return response.status(500).json({ message: 'Error deleting note. Try again later!', error: e.data.message });
         }
+    },
+    getNoteByID: async (request, response) => {
+        try {
+            // get the id from the request params
+            const { id } = request.params;
+
+            // call the delete by id method
+            const note = await Note.findById(id);
+
+            // send a response
+            response.json(note);
+        } catch (e) {
+            return response.status(500).json({ message: 'Error fetching note. Try again later!', error: e.data.message });
+        }
     }
 }
 
