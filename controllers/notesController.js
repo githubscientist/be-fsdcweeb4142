@@ -31,8 +31,27 @@ const notesController = {
             return response.status(500).json({ message: 'Error creating a new note. Try again later!', error: e.data.message });
         }
     },
-    updateNote: (request, response) => {
-        response.json({ message: 'put notes' });
+    updateNote: async (request, response) => {
+        try {
+            // get the id from the request params
+            const { id } = request.params;
+
+            // get the data from the request body
+            const { title, description, tag } = request.body;
+
+            // call the mongoose method to update the data
+            await Note.findByIdAndUpdate(id, { title, description, tag });
+            // const noteToUpdate = await Note.find({ tag });
+
+            // noteToUpdate[0].title = title;
+
+            // await noteToUpdate[0].save();
+
+            // send the response
+            response.json({ message: 'Note updated successfully' });
+        } catch (e) {
+            return response.status(500).json({ message: 'Error updating note. Try again later!', error: e.data.message });
+        }
     },
     deleteNote: (request, response) => {
         response.json({ message: 'delete notes' });

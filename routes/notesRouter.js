@@ -8,7 +8,7 @@ const notesRouter = express.Router();
 // configure the routes
 notesRouter.get('/', getAllNotes);
 notesRouter.post('/', createNote);
-notesRouter.put('/', updateNote);
+notesRouter.put('/:id', updateNote);
 notesRouter.delete('/', deleteNote);
 
 // export the router
