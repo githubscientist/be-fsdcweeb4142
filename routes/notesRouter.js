@@ -9,7 +9,7 @@ const notesRouter = express.Router();
 notesRouter.get('/', getAllNotes);
 notesRouter.post('/', createNote);
 notesRouter.put('/:id', updateNote);
-notesRouter.delete('/', deleteNote);
+notesRouter.delete('/:id', deleteNote);
 
 // export the router
 module.exports = notesRouter;
